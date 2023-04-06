@@ -11,8 +11,17 @@ for (let i = 0; i < 256; i++) {
     squareContainer.appendChild(cell);
 }
 
+let isMouseDown = false;
+squareContainer.addEventListener('mousedown', function () {
+  isMouseDown = true;
+});
+squareContainer.addEventListener('mouseup', function () {
+  isMouseDown = false;
+});
 squareContainer.addEventListener('mouseover', function (e) {
+  if (isMouseDown) {
     handleEvent(e);
+  }
 });
 
 function handleEvent(e) {
